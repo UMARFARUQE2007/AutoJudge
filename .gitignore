@@ -1,0 +1,7 @@
+.gitignore
+models/
+*.joblib
+*.pkl
+data/
+venv/
+.DS_Store
