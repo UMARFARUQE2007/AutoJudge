@@ -107,7 +107,7 @@ pip install -r need.txt
 ```
 Note for Mac (M1/M2/M3) Users: If you encounter errors with LightGBM, you may need to install OpenMP via Homebrew: brew install libomp
 
-## 3. Start the Flask server
+### 3. Start the Flask server
 ```bash
 python app.py
 ```
@@ -120,4 +120,31 @@ Open your web browser and navigate to: http://127.0.0.1:5000
 <br>
 Enter a problem statement, input description, and output description to see the predicted difficulty and score. Enjoy :)
 
+---------------------------
+## Web Interface 
+The web interface is built using Flask, a lightweight Python web framework. It functions as the bridge between the user's browser and our machine learning models.
 
+### 1. The HTML Frontend (index.html)
+The user interface is a simple HTML form that accepts three text inputs. When the user clicks "Analyze", the form submits data using the POST method
+### 2. The Flask Backend (app.py)
+The Python script listens for this request on the /predict route. It handles the data flow as follows: <br>
+First it captues the input from request.form.get() method extracts the raw text from the HTML form fields.
+<br>
+Then Preprocessing The raw text is combined and cleaned (lowercased, stopwords removed) using the same upd() function(more on it in the project.pdf) used during model training to ensure consistency.
+<br>
+Model Prediction is done by the following method: The processed text is vectorized and fed into our loaded models:
+Classification: Uses clf_model.predict() to get the label (Easy/Medium/Hard).
+<br>
+Regression: Uses reg_model.predict() to get the score (0-100).
+<br>
+And atlast, Rendering Results (Jinja2), Flask uses the Jinja2 templating engine to inject these results back into the HTML page dynamically.
+<br>
+
+----------------------------
+[Link to Demo Video](YOUR_VIDEO_URL_HERE)
+
+---
+### Submitted by:
+* **Name:** Umar Faruque
+* **Department:** MNC (2nd Year)
+* **Enroll no.:** 24323045
