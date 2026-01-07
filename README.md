@@ -58,5 +58,26 @@ Both models utilize a hybrid feature extraction strategy. I found that raw text 
 * **The Final Model: LightGBM + Optuna** 
     * For the regression task, precision was key. I utilized **LightGBM** for its speed and efficiency with high-dimensional data.
     * Instead of manual tuning, I deployed **Optuna**—an advanced hyperparameter optimization framework. Optuna successfully squeezed out the best performance by fine-tuning sensitive parameters like `learning_rate`, `num_leaves`, and `lambda_l1/l2` regularization, achieving the lowest RMSE and relatively higher R2 score.
-message.txt
-5 KB
+#  Model Evaluation Report
+
+## 1. Classification Models (Difficulty Labeling)
+We compared a manual Random Forest approach against a Grid Search tuned model.
+| Model Strategy | Accuracy | Precision (Weighted) | Recall (Weighted) | F1-Score (Weighted) |
+| :--- | :--- | :--- | :--- | :--- |
+| **Manual Parameters** | **0.53** | **0.51** | **0.53** | **0.51** |
+| **Grid Search (Best)**| 0.50 | 0.47 | 0.50 | 0.45 |
+
+<br>
+
+## 2. Regression Models (Difficulty Score 0-100)
+We evaluated three different regression strategies. The **Gradient Boosting + Optuna** approach yielded the best performance, achieving the lowest error (RMSE) and highest explained variance (R²).
+
+| Model Architecture | RMSE (Root Mean Sq. Error) | MAE (Mean Abs. Error) | R² Score |
+| :--- | :--- | :--- | :--- |
+| **Regression Tree (GridSearch)** | 20.05 | 16.99 | 0.1310 |
+| **Gradient Boosting (Standard)** | 20.15 | 16.55 | 0.1227 |
+| **Gradient Boosting + Optuna** | **19.66** | **16.34** | **0.1641** |
+
+### Key Observations
+* **Optuna Improvement:** Tuning with Optuna improved the R² score from **0.12** (Standard) to **0.16**, capturing more complexity in the problem statements.
+* **Error Reduction:** The Optuna model reduced the RMSE to **19.66**, making its predictions closer to the actual difficulty score than the other models.
