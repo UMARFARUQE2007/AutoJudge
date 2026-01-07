@@ -107,7 +107,7 @@ pip install -r need.txt
 ```
 Note for Mac (M1/M2/M3) Users: If you encounter errors with LightGBM, you may need to install OpenMP via Homebrew: brew install libomp
 
-###3. Start the Flash server
+## 3. Start the Flask server
 ```bash
 python app.py
 ```
