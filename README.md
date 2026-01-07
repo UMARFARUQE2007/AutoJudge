@@ -81,3 +81,43 @@ We evaluated three different regression strategies. The **Gradient Boosting + Op
 ### Key Observations
 * **Optuna Improvement:** Tuning with Optuna improved the R² score from **0.12** (Standard) to **0.16**, capturing more complexity in the problem statements.
 * **Error Reduction:** The Optuna model reduced the RMSE to **19.66**, making its predictions closer to the actual difficulty score than the other models.
+
+
+## How to Run Locally?
+
+Follow these steps to set up and run the project on your local machine.
+
+### 1. Prerequisites
+Ensure you have the following installed:
+* **Python 3.9+** (Python 3.13 recommended)
+* **pip** (Python package installer)
+
+### 2. Clone the Repository
+Open your terminal (or Command Prompt) and run:
+
+```bash
+git clone [https://github.com/UMARFARUQE2007/AutoJudge.git](https://github.com/UMARFARUQE2007/AutoJudge.git)
+cd AutoJudge
+```
+Recommend to run in virtual env
+<br>
+Run following to get all the modules installed
+``` bash
+pip install -r need.txt
+```
+Note for Mac (M1/M2/M3) Users: If you encounter errors with LightGBM, you may need to install OpenMP via Homebrew: brew install libomp
+
+###3. Start the Flash server
+```bash
+python app.py
+```
+You should see something like this:
+* Serving Flask app 'app'
+* Debug mode: on
+* Running on [http://127.0.0.1:5000](http://127.0.0.1:5000)
+
+Open your web browser and navigate to: http://127.0.0.1:5000
+<br>
+Enter a problem statement, input description, and output description to see the predicted difficulty and score. Enjoy :)
+
+
