@@ -4,9 +4,7 @@
 <br>
 <br>
 Unlike other methods which rely on user submission data (acceptance rates), this project leverages **Natural Language Processing (NLP)** and advanced feature engineering to predict difficulty *before* a problem is even solved by a large audience.
-Expand
-message.txt
-5 KB
+
 ﻿
 ## AutoJudge
 
